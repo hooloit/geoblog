@@ -6,6 +6,6 @@ app_name = 'reg'
 
 urlpatterns = [
     path('reg/', register, name="reg"),
-    path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('api/token/', Test.as_view(), name='test'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
 ]
