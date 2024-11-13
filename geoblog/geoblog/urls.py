@@ -18,11 +18,19 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from rest_framework import routers
 
+from blog.views import postViewSet
+
+router = routers.SimpleRouter()
+router.register(r'post', postViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include("blog.urls", 'blog')),
     path('reg/', include("reg.urls", 'reg')),
+    path('api/v1/', include(router.urls)),
+    # path('api/v1/post', postViewSet.as_view({'get': 'list'})),
+    # path('api/v1/post/<int:pk>', postViewSet.as_view({'put': "update"})),
 
 ]
