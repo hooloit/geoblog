@@ -33,4 +33,4 @@ urlpatterns = [
     # path('api/v1/post', postViewSet.as_view({'get': 'list'})),
     # path('api/v1/post/<int:pk>', postViewSet.as_view({'put': "update"})),
 
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

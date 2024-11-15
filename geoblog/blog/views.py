@@ -1,12 +1,14 @@
+from ast import parse
 from bisect import insort
-from rest_framework.decorators import action
 from django.core.serializers import serialize
 from django.shortcuts import render
 from rest_framework import viewsets
 from rest_framework.response import Response
-
+from rest_framework import parsers
 from .models import post
 from .serializers import postSerializer
+
+
 
 class postViewSet(viewsets.ModelViewSet):
     queryset = post.objects.all()
@@ -26,6 +28,7 @@ class postViewSet(viewsets.ModelViewSet):
 # class postAPICrud(generics.RetrieveUpdateDestroyAPIView):
 #     queryset = post.objects.all()
 #     serializer_class = postSerializer
+
 # Расписаный пиздец
 # class postAPIView(APIView):
 #     # GET запрос
@@ -73,5 +76,9 @@ def index(request):
 
 def chat(request):
     return render(request, "chat.html")
+
 def room(request, room_name):
     return render(request, "room.html", {"room_name": room_name})
+
+def create(request):
+    return render(request, "create_post.html")

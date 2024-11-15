@@ -8,4 +8,6 @@ urlpatterns = [
     path('chat/', chat, name="chat"),
     # re_path(r'', include('django_private_chat2.urls', namespace='django_private_chat2')),
     path("chat/<str:room_name>/", room, name="room"),
+    path("create/", create, name="room"),
+
 ]
