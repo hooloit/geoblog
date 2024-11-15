@@ -5,5 +5,13 @@
     <title>Create your post</title>
 </head>
 <body>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <p>
+        <input class="pizdec">
+        <button type="submit">Отправить</button>
+    </p>
+</form>
 </body>
 </html>
